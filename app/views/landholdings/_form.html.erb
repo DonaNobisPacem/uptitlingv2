@@ -1,0 +1,74 @@
+<%= simple_form_for(@landholding) do |f| %>
+  	<%= f.error_notification %>
+
+  	<div class="form-inputs">
+  		<div class="panel panel-info">
+  			<div class="panel-heading">
+  				<b><%= icon('info-circle') %> General Information</b>
+  			</div>
+  			<div class="panel-body">
+				<div class="col-xs-12">
+					<%= f.input :university_id, :collection => University.all.order(:university_name), :label_method => :university_name, :include_blank => false, :label => "Landholding of:" %>
+				</div>
+
+				<div class="col-xs-6">
+					<%= f.input :classification, :label => "Classification" %>
+				</div>
+				<div class="col-xs-6">
+					<%= f.input :owner, :label => "Owner" %>
+				</div>
+
+				<div class="col-xs-12">
+					<%= f.input :description, :label => "Description/Location", :input_html => {:rows => 3} %>	
+				</div>
+
+				<div class="col-xs-3">
+					<%= f.input :total_area_meter, :label => "Total Area (Sq. meters)" %>
+				</div>		
+				<div class="col-xs-6">
+					<%= f.input :titling_status, :label => "Titling Status" %>
+				</div>	
+				<div class="col-xs-3">
+					<%= f.input :date_issued, as: :date, :label => "Date Issued", :start_year => Date.today.year, :end_year => 1900, :include_blank => true, :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+				</div>
+
+				<div class="col-xs-6">
+					<%= f.input :acquisition, :label => "Mode of Acquisition" %>
+				</div>
+				<div class="col-xs-6">
+					<%= f.input :tax_dec_no, :label => "Tax Dec. No." %>
+				</div>
+
+				<div class="col-xs-12">
+					<%= f.input :remarks, :input_html => {:rows => 3} %>
+				</div>
+  			</div>
+  		</div>
+		
+  		<div class="panel panel-info">
+  			<div class="panel-heading">
+  				<b>Steps to Land Titling</b>
+			</div>
+			<div class="panel-body">
+				<div class="col-xs-6">
+				<%= f.input :titling_step_eins, :label => "Step 1", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_zwei, :label => "Step 2", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_drei, :label => "Step 3", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_vier, :label => "Step 4", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_funf, :label => "Step 5", :input_html => {:rows => 3} %>
+				</div>
+				<div class="col-xs-6">
+				<%= f.input :titling_step_sechs, :label => "Step 6", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_sieben, :label => "Step 7", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_acht, :label => "Step 8", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_neun, :label => "Step 9", :input_html => {:rows => 3} %>
+				<%= f.input :titling_step_zehn, :label => "Step 10", :input_html => {:rows => 3} %>
+				</div>
+			</div>
+		</div>
+  	</div>
+
+  	<div class="form-actions">
+    	<%= f.button :submit, "Save updates" %>
+  	</div>
+<% end %>

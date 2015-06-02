@@ -1,0 +1,73 @@
+<% if user_signed_in? %>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+		    <div class="navbar-header">
+				<%= link_to image_tag('upseal.png', :class => "navbar-brand"), root_path %>
+		    </div>
+		    <div class="collapse navbar-collapse">
+		    	<ul class="nav navbar-nav">
+		    		<li class="dropdown">
+			     		<%= link_to '<i class="fa fa-university"></i> Universities <i class="fa fa-caret-down"></i>'.html_safe, universities_path, :id => 'campusdrop', :'data-toggle' => 'dropdown', :class => 'dropdown-toggle' %>
+			     		<ul class="dropdown-menu">
+			     			<% University.all.each do |university| %>
+							<li>
+								<%= link_to university do %>
+								  	<%= icon('university') %> <%= university.university_name %>
+								<% end %>
+							</li>
+							<% end %>
+							<% if current_user.admin %>
+								<li>
+									<%= link_to new_university_path do %>
+									<i class="fa fa-plus"></i> Add University
+									<% end %>
+								</li>
+							<% end %>
+						</ul>
+					</li>
+					<li class="dropdown">
+			     		<%= link_to '<i class="fa fa-building"></i> Landholdings <i class="fa fa-caret-down"></i>'.html_safe, landholdings_path, :id => 'projectdrop', :'data-toggle' => 'dropdown', :class => 'dropdown-toggle' %>
+			     		<ul class="dropdown-menu">
+							<li>
+								<%= link_to landholdings_path do %>
+								  	<i class="fa fa-building"></i> View Landholdings
+								<% end %>
+							</li>
+							<li>
+								<%= link_to new_landholding_path do %>
+								<i class="fa fa-plus"></i> Add New Landholding
+								<% end %>
+							</li>
+						</ul>
+					</li>
+					<% if current_user.admin %>
+						<li> <%=link_to '<i class="fa fa-user-plus"></i> Admin Panel'.html_safe, admin_panel_path %> </li>
+					<% end %>
+				</ul>
+	      		<ul class="nav navbar-nav navbar-right">
+	      			<li>
+			      		<%= link_to root_path do %>
+						  	<i class="fa fa-home"></i> Home
+						<% end %>
+					</li>
+					<li>
+			      		<%= link_to current_user do %>
+						  	<i class="fa fa-user"></i> <%= current_user.email %>
+						<% end %>
+					</li>
+					<li>
+			      		<%= link_to edit_user_registration_path do %>
+						  	<i class="fa fa-gear"></i> Settings
+						<% end %>
+					</li>
+			      	<li class="">
+						<%= link_to(destroy_user_session_path, :method=>'delete') do %>
+						<i class="fa fa-sign-out"></i> Logout
+						<% end %>
+					</li>
+		      	</ul>
+		    </div>
+	  	</div>
+	</nav>
+<% else %>
+<% end %>

@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+	<br>
+	<%= render 'shared/university_selector' %>
+	<br>
+	<%= render 'shared/search' %>
+	<%= render 'shared/landholding_list' %>
+<% else %>
+	<%= render 'signin' %>	
+<% end %>

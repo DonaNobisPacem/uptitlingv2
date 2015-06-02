@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<b><%= icon('info-circle') %> General Information</b>
+	</div>
+	<div class="panel-body">
+		<b>Classification: </b><%= @landholding.classification %> </br>
+		<b>Description/Location: </b><%= @landholding.description %> </br>
+		<b>Owner: </b><%= @landholding.owner %> </br>
+		<b>Total Area(Sq. Meters): </b><%= @landholding.total_area_meter %> </br>
+		<b>Mode of Acquisition: </b><%= @landholding.acquisition %> </br>
+		<b>Titling Status: </b><%= @landholding.titling_status %> </br>
+		<b>Date Issued: </b><%= @landholding.date_issued.strftime("%d %B %Y") if @landholding.date_issued %> </br>
+		<b>Tax Dec. No.: </b><%= @landholding.tax_dec_no %> </br>
+		<b>Remarks:</b></br>
+		<% unless @landholding.remarks.blank? %>
+			<div class="well">
+				<%= @landholding.remarks %>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<b>Steps to Land Titling</b>
+	</div>
+	<div class="panel-body">
+		<table class="table table-hover">
+		  <thead>
+		    <tr>
+		      <th></th>
+		      <th>Description</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<tr>
+		  		<td>Step 1:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_eins) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 2:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_zwei) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 3:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_drei) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 4:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_vier) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 5:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_funf) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 6:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_sechs) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 7:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_sieben) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 8:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_acht) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 9:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_neun) %> </td>
+		  	</tr>
+		  	<tr>
+		  		<td>Step 10:</td>
+		  		<td style="word-wrap:break-word;"><%= simple_format(@landholding.titling_step_zehn) %> </td>
+		  	</tr>
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_landholding_path(@landholding) %> |
+<%= link_to 'Back', @landholding.university %>

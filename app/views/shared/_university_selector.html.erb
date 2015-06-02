@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="dropdown col-xs-12">
+		<button class="btn btn-success dropdown-toggle col-xs-12" type="button" id="univDropdown" data-toggle="dropdown" aria-expanded="true">
+			Select a CU <%= icon('caret-down') %>
+		</button>
+		<ul class="dropdown-menu col-xs-12" role="menu" aria-labelledby="dropdownMenu1">
+			<% @university_list.each do |university| %>
+				<li>
+					<%= link_to university do %>
+					  	<%= icon('university') %> <%= university.university_name %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
