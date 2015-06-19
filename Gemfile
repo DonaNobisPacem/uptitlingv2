@@ -64,6 +64,7 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 # Twitter Bootstrap + Font Awesome
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
+gem 'google-webfonts-rails'
 
 # User authentication + registration
 gem 'devise'

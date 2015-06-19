@@ -15,10 +15,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-$font-family-base: 'FontAwesome';
-$body-bg: #E8E2EC !default;
-$navbar-default-bg: #557351;
-$navbar-default-link-color: #EBECB0;
+$font-family-base: "Ubuntu";
+$headings-font-family: "FontAwesome";
+
+$body-bg: #D5E8C8 !default;
+$navbar-default-bg: #745A4B;
+$navbar-default-link-color: #EAF096;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
